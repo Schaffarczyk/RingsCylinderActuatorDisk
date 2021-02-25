@@ -1,0 +1,11 @@
+N-Sing    1000
+ct        1.0
+zsivc     100.
+update    .true.
+maxiter   6
+under     0.001
+epscp     1.e-2
+IndVel    3  
+wakety    1
+wake-a    1.5
+modelit	  1

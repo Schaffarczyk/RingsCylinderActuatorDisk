@@ -1,0 +1,54 @@
+set term x11
+set xrange[1.e-4:20.]
+set yrange[0.9:1.25]
+set grid
+set xlabel "z"
+#set format x "%s*10^{%S}"
+set format y "%4.2f"
+set ylabel "vz r-sls"
+set logscale x
+set title "vK/own code cT = 1"
+set key at 5, 1.1
+
+ct = 1.
+a  = 0.5*(sqrt(1.+ct)-1.)
+
+vzinf = sqrt(1.+ct)
+vzinff = 0.5*(1.+vzinf)
+vz0   = 1. + a 
+rinf  = sqrt(vz0/vzinf)
+gasivc = 1.-sqrt(1.+ct)
+
+as = 2.2
+sl(x) = rinf+(1.-rinf)*exp(-as*x)
+
+y1(x) = 0.
+y2(x) = vzinff
+y3(x) = rinf
+y4(x) = vz0
+
+plot  sl(x)                                       w l t 'sls exp     ' lc rgb 'black' 
+rep  'sls.DAT'                     u 2:3          w l t 'sls own code' lc rgb 'red'    
+rep  '../vanKuik/acts601_CT_1.dat' u 1:(rinf*$2)  w l t 'sls vK  code' lc rgb 'green' 
+rep  'sls.DAT'                     u 2:(1.+$4)    w l t 'vz  own code' lc rgb 'red'   lw 2
+rep  '../vanKuik/acts601_CT_1.dat' u 1:5          w l t 'vz  vK  code' lc rgb 'green' lw 2
+rep  y2(x)                                        w l t '' lc rgb 'blue'  lw 2
+rep  y3(x)                                        w l t '' lc rgb 'blue'  
+rep  y4(x)                                        w l t '' lc rgb 'blue'  
+
+
+#rep  'sls.DAT' u 2:5 w l t 'vr' lc rgb 'magenta' lw 2
+#rep  y4(x) w l t 'vz0  ' lc rgb 'black'
+#rep  y3(x) w l t 'rinf ' lc rgb 'red' lw 2
+
+
+#rep  y1(x) w l t '0'
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "SLS-inner.ps" 
+set term postscript landscape color "Roman" 18
+replot
+
+
