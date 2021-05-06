@@ -1,0 +1,44 @@
+set term x11
+set xrange[1.e-4:1.e2]
+set yrange[0.3:0.8]
+set grid
+set xlabel "z"
+#set format x "%s*10^{%S}"
+set format y "%4.2f"
+set ylabel "vz"
+set logscale x
+set title "vz at slip stream"
+set key top right
+
+ct = -8./9.
+
+vz1 = sqrt(1.+ct)
+vz2 = 0.5*(1.+vz1)
+vz3 = 0.5*(1.+vz2)
+
+y1(x) = vz1
+y2(x) = vz2
+y3(x) = vz3
+
+plot 'sls.DAT'                       u 2:4    w l t 'own code' lc rgb 'red'   lw 2
+rep  '../vanKuik/acts417_CT_8_9.dat' u 1:5    w l t 'vK  code' lc rgb 'green' lw 2
+#rep  y1(x)                                  w l t 'vz1     ' lc rgb 'blue'  lw 2 
+rep  y2(x)                                  w l t 'vz2     ' lc rgb 'black' 
+#rep  y3(x)                                  w l t 'vz3     ' lc rgb 'blue'  lw 2 
+
+
+#rep  'sls.DAT' u 2:5 w l t 'vr' lc rgb 'magenta' lw 2
+#rep  y4(x) w l t 'vz0  ' lc rgb 'black'
+#rep  y3(x) w l t 'rinf ' lc rgb 'red' lw 2
+
+
+#rep  y1(x) w l t '0'
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "SLS-vz-WT.ps" 
+set term postscript landscape color "Roman" 18
+replot
+
+

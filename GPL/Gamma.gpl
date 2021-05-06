@@ -1,0 +1,36 @@
+set term x11 enhanced
+set xrange[1.e-5 :1.e2 ]
+#set yrange[0.35   :0.5]
+set grid
+set xlabel "z"
+set ylabel "gamma"
+#set format x "%.0f"; set xtics (1,5)
+set format x"%.1t*10^{%T}"
+#set xtics 2.
+set logscale x
+#set logscale y
+set title "Vortex strength"
+set key top right
+
+ct =  1.
+a  = 0.5*(sqrt(1.+ct)-1.)
+vz0   = 1. + a 
+vzinf = sqrt(1.+ct)
+rinf  = sqrt(vz0/vzinf)
+ga1(x) = abs(1.-sqrt(1.+ct))
+
+
+plot 'sls.DAT'                      u 2:(abs($6))      w l t 'Vortex code    ' lc rgb 'green' 
+rep '../vanKuik/acts601_CT_1.dat'   u 1:(abs($4))      w l t 'van Kuik cT=1  ' lc rgb 'blue'  
+#rep '../vanKuik/acts417_CT_8_9.dat' u 1:(abs($4))      w l t 'van Kuik cT=8/9' lc rgb 'blue'  
+rep ga1(x)                                                 t 'Momentum       ' lc rgb 'red'     
+#rep  'sls.DAT'                     u 2:(rinf*abs($6)) w l t 'APS*rinf' 
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "Gamma-Prop.ps" 
+set term postscript landscape color "Roman" 18
+replot
+
+

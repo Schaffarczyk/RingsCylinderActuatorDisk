@@ -1,0 +1,29 @@
+set term x11
+#set xrange[1.e-4:1.e2]
+#set yrange[0.31:0.38]
+set grid
+set xlabel "z"
+#set format x "%s*10^{%S}"
+set format y "%7.5f"
+set ylabel "psi"
+set logscale x
+set title "Slipstream Development cP = -8/9"
+set key top left
+  
+psiwake = 0.25*(1.+sqrt(1.+ct))
+psi(x) = psiwake
+  
+plot 'psidev.DAT' u 1:2             w l t 'psi intermediate   ' lc rgb 'green'  
+rep 'sls.DAT'     u 2:(($7)+($8))   w l t 'psi final          ' lc rgb 'blue' lw 2
+rep psi(x)                          w l t 'psi momentum theory' lc rgb 'red'  lw 3
+
+#rep 'sls.DAT'    u 2:7              w l t 'Rings(35.5)' lc rgb 'black'   
+#rep 'sls.DAT'    u 2:8              w l t 'Cyl (36.39)' lc rgb 'blue' 
+
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "psidev.ps" 
+set term postscript landscape color "Roman" 18
+replot

@@ -1,0 +1,44 @@
+set term x11 enhanced
+set xrange[1.e-4:1.e2]
+set yrange[1.e-5:1.e0]
+set grid
+set xlabel "axis (x or z)"
+set ylabel "-v_r"
+set logscale x
+set logscale y
+set format x "%.0t*10^{%T}"
+set format y "%.0t*10^{%T}"
+set title "self induction on vortex sheet"
+set key top right
+
+ct = 1.
+a  = 0.5*(sqrt(1.+ct)-1.)
+
+vzinf = sqrt(1.+ct)
+vz0   = 1.+   a 
+rinf  = sqrt(vz0/vzinf)
+
+as= 2.
+sl(x) = rinf+(1.-rinf)*exp(-as*x)
+
+y1(x) = 0.
+y2(x) = vzinf
+y3(x) = rinf
+y4(x) = vz0
+
+s1 = 'sls.DAT' 
+s2 = '../vanKuik/acts601_CT_1.dat'
+
+plot s1 u 2:8  w l t 'vz-self' lc rgb 'red'   lw 2
+rep  s1 u 2:9  w l t 'vr-self' lc rgb 'green' lw 2
+
+
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "SLS-vsef.ps" 
+set term postscript landscape color "Roman" 18
+replot
+
+

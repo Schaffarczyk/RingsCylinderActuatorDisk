@@ -1,0 +1,37 @@
+set term x11
+#set xrange[1.e-4:1.e2]
+#set yrange[0.92:0.94]
+set grid
+set xlabel "z"
+#set format x "%s*10^{%S}"
+set format y "%4.2f"
+set ylabel "r"
+set logscale x
+set title "Slipstream Shape turbine case cT = ($ct)"
+set key top right
+
+a  = 0.5*(sqrt(1.+ct)-1.)
+
+vzinf = sqrt(1.+ct)
+vzinff = 0.5*(1.+vzinf)
+vz0   = 1. + a 
+rinf  = sqrt(vz0/vzinf)
+gasivc = 1.-sqrt(1.+ct)
+
+ 
+  
+plot 'sls.DAT'                     u 2:3         w l t 'own code' lc rgb 'magenta' lw 2 
+rep  '../vanKuik/acts417_CT_8_9.dat' u 1:(rinf*$2) w l t 'van Kuik' lc rgb 'green'  lw 2
+#rep  yinf(x)                                    w l t 'infinity' lc rgb 'blue'  
+#rep  y2(x)                                      w l t 'exp2.0  ' lc rgb 'black' lw 3
+#rep y1(x)                                       w l t 'nl fit  ' lc rgb 'red'  
+
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "SLS-WT.ps" 
+set term postscript landscape color "Roman" 18
+replot
+
+

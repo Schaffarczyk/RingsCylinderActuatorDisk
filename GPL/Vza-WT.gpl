@@ -1,0 +1,28 @@
+set term x11
+#set xrange[0.:30.]
+#set yrange[0.2:0.45]
+set grid
+set xlabel "z"
+set ylabel "vz"
+#set logscale y
+set title "vz at r=0 cT = -8./9."
+set key top right
+
+ct = -8./9.
+
+a      = 0.5*(sqrt(1.+ct)-1.)
+vzinf  = 1. +2*a
+vz0    = 1. +  a
+y(x)   = vzinf
+
+plot 'vza.DAT' u 1:(1.+$2)    w l t 'Rings        ' lc rgb 'blue' 
+rep  'vza.DAT' u 1:(1.+$2+$3) w l t 'Rings +Cyl   ' lc rgb 'green' 
+rep  'vza.DAT' u 1:(1.-$4)    w l t 'Cyl Eq (D.9) ' lc rgb 'magenta' 
+rep  y(x)                     w l t 'vinf         ' lc rgb 'red'  
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "Vza-WT.ps" 
+set term postscript landscape color "Roman" 18
+replot

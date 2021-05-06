@@ -1,0 +1,21 @@
+set term x11
+set yrange[0.:1.]
+#set xrange[-0.1:0.]
+set grid
+set xlabel "vz, vr"
+set ylabel "r"
+#set logscale y
+set title "v at z=0 (disk) cT = -8/9"
+#set key at 5, 1.1
+
+plot 'vrd.DAT'   u ($2+$3):1   w l  t 'vr   ' lc rgb 'red'  lw 2
+rep  'vzd.DAT'   u 2:1         w l  t 'vz   ' lc rgb 'blue' lw 2
+rep  'vz-WT.dat' u 2:1         w l  t 'vz-MT' lc rgb 'green' lw 2
+
+pause -1 "Hit <Return> to continue ..."
+#
+# ps Ausgabe
+#
+set output "Vdisk-WT.ps" 
+set term postscript landscape color "Roman" 18
+replot
