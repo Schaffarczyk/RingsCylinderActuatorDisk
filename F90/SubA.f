@@ -101,8 +101,8 @@ c
 	cpcode = cpp(cp)
 c
 	write(*,*)'============= RESULT ============================='
-	dev = (cpcode-cpmom)/cpmom
-	write(*,105)'cP mom = ',cpmom,' cP code = ',cpcode,' dev',dev
+	dev = (cp-cpmom)/cpmom
+	write(*,105)'cP mom = ',cpmom,' cP code = ',cp,' dev',dev
 	write(*,*)'=================================================='
 c	                  
 c**********************************************************************
@@ -154,9 +154,10 @@ c
 	nr = 100
 c
 	za = 0.
-	ze = 5.
+	ze = 10.
 	ra = 1.e-3
 	re = rsivc
+	re = 2.
 c
 	dr = (re-ra)/float(nr)
         dz = (ze-za)/float(nz)
@@ -227,7 +228,7 @@ c          DEBUG
 c
 c           slope = 57.296*atan2(dr,dz)
 c           write(*,666)zsl(i),dz,dr,vz(i),vr(i),vn,vt,slope
-c666        format(8f12.6)
+c           format(8f12.6)
 c
 c          END DEBUG
 c
@@ -238,7 +239,7 @@ c
 99	format(10a12) 
 100	format(i12,9f12.6)
 102	format(4f18.8)
-105	format(2(a10,f12.6),a10,e12.3)
+105	format(2(a10,f12.8),a10,e12.3)
 107	format(3f12.6)
 108     format(2e12.4)
 c
@@ -257,7 +258,7 @@ c
 	real d(4)
 	real al
 c
-	character*14 s(3),inpstr,is(4),slt(0:3)
+	character*14 s(3),inpstr,is(4),slt(0:5)
 	character*8 date
 	character*10 time
 	character*5 zone
@@ -285,10 +286,11 @@ c
 	is(2) = ' Rotate  '
 	is(3) = ' PSI     '
 c
-	slt(0) = ' r = 1    '
 	slt(1) = ' exp simp '
 	slt(2) = ' exp adv  '
 	slt(3) = ' Eq. (D.9)'
+	slt(4) = ' r = rsivc'
+        slt(5) = ' r = 1    '
 c
 	call date_and_time(date,time,zone,values)
 c
@@ -303,7 +305,7 @@ c
 c       read configuration file inpa.dat
 c       --------------------------------
 c
-c       restart from previosu case ?
+c       restart from previous case ?
 c
 	read(5,*) inpstr,restart
 	write(*,*)inpstr,restart
@@ -366,6 +368,7 @@ c
 c       ini wake shape - see below for details
 c
 	read(5,*) inpstr,nwt
+	write(*,'(a10,i3)')inpstr,nwt
 c
 c       slipstream saturation length (1 to 3)
 c
@@ -491,18 +494,23 @@ c	   write(*,*)cos(phi),zsl(i)
 c
 c       initialize slipstream shape
 c
-c       nwt = 0 -> rsl = 1 (cylinder)
+c       nwr = 0 -> rsl = 1 (cylinder)
 c      	nwr = 1 -> simple exponential blending
 c      	nwr = 2 -> more general exponential blending
 c      	nwr = 3 -> according to vK Eq. (D.9) 
+c     	nwr = 4 -> rsl = rsivc (cylinder)
 c
         slope = 57.2958*atan(-al*(1.-rinf))
 	write(*,'(a15,f12.6)')'sl slope(0)= ',slope
         write(*,*)
 c
 	   if(.not.restart)then
+c
               select case(nwt)
               case(1)
+c
+c             simple exp function
+c
 	         do i=1,np
 	            rsl(i) = rinf+(1.-rinf)*exp(-al*zsl(i))
 	         end do
@@ -535,10 +543,22 @@ c
 	         rsl(i)= sqrt(u0/uwake)
 	      end do
 c
-	      case Default
+	      case(4)	  
+	         write(*,*)'ini wake 4 r = rsivc'   
+	         do i = 1,np
+	            rsl(i) = rsivc
+	         end do	
+c
+	      case (5)
 	         do i=1,np
 	            rsl(i) = 1.
 	         end do	
+c
+       	      case Default
+	         do i=1,np
+	            rsl(i) = 1.
+	         end do	
+	         
               end select 
 	   end if
 c
@@ -611,6 +631,9 @@ c
 	a = (a + f1 + 4.*drd*fdrd)*drd/3.
 
 	cp = ct*(1. + a)
+c
+c       debug
+c	write(*,*)'debug function cpp ',cp
 c
 	return
 	end

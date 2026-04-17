@@ -12,7 +12,8 @@ c	polish:        2021 05 03
 c
 c	V2:	       2021 
 c
-c       V3:            Start: 2020 August 22
+c       V3:            2026 new attempt to improve slipstream iteration
+   
 c
 	program VortexCode
 c
@@ -72,7 +73,7 @@ c
              vrr  = sqrt(vr2)
 	     vav  = sqrt(vz2+vr2)
 c
-c            start slip stream iteation
+c            start slip stream iteration
 c
 	     select case(modelit)
 c
@@ -85,8 +86,8 @@ c                z should also change, but this does not work
 c
                 dzz   = zsl(mm)+zsl(mm-1)
 
- 	        dzn  = amin1(dzz,1.)*under*(1.+vz(mm))*ds/vav
-                drn  = amin1(dzz,1.e-3)*under*vr(mm)*ds/vav 	
+ 	        dzn  = amin1(dzz,1.   )*under*(1.+vz(mm))*ds/vav
+                drn  = amin1(dzz,1.e-3)*under*vr(mm)     *ds/vav 	
 c
 	     case (2)
 c
@@ -121,8 +122,8 @@ c
 	        psir  = psiBr(zw,rw) + psiBrCyl(zw,rw)
 	        dpsi  = psiwake - psir
 c
-c                drn   = amin1(dzz,.1)*under*dpsi/(vzw*rw)
-                drn   = amin1(dzz,.1)*under*dpsi
+                drn   = amin1(dzz,.1)*under*dpsi/(vzw*rw)
+c                drn   = amin1(dzz,.1)*under*dpsi
 c
 c               2022 08 22: underrelaxation depends on z-ring
 c
@@ -133,7 +134,7 @@ c               write(*,'(5a12)')'zw','psiwake','psir','rw','drn'
                    write(222,'(5e12.4)')zw,psiwake,psir,rw,drn
                 endif
 c
-c---------------------------------------------------------------------------------------
+c------------------------------------------------------------------------------------------------------
 c              add change of dz as well
 c
                 dzn   = dpsi/(vrw*rw)
@@ -145,12 +146,30 @@ c
                 endif
 	        dzn = 0.  
 c
+	     case (4)
+	  
+c	        (4) debugm van Kuik Eq (D.12) using
+c               u_z = 1/r dpsi/dr -> dr = dpsi/(r u_z)
+c               we use dpsi = psi-wake - psi-sls 
+c
+                dzz   = .5*(zsl(mm)+zsl(mm-1))
+	        zw    = dzz
+	        rw    = rsl(mm)
+	        vzw   = 1. + 0.5*(vz(mm)+vz(mm-1)) 
+	        vrw   =      0.5*(vr(mm)+vr(mm-1)) 
+c
+	        psir  = psiBr(zw,rw) + psiBrCyl(zw,rw)
+	        dpsi  = psiwake - psir
+c
+                drn   =  under*dpsi	   
+c
 	    case default
 c
 	    end select
 c	    end select case(modelit)
 c
-c----------------------------------------------------------------------------------------------------
+c---------------------------------------------------------------------------------------------------------
+
 c            change to new slipstream coordinates         
 c   
 c            approach Bontempo: 
@@ -190,27 +209,42 @@ c
 	  errff = errff/zsivc
 c
 	  cpw      = cpp(cp)
-	  errcp    = abs((cpw-cpm)/cpm)
+	  
+c         begin debug
+c	     write(*,*)'debug main cpp ',cp, cpw
+c         end debug
+c
+	  errcp    = abs((cp-cpm)/cpm)
 c
 c         new: 2022 08 22: prevent iteration if errcp rizes
 c
           errcpold = errcpnew
           errcpnew = errcp
+c
+	  if(errcpnew.gt.errcpold)then
+	       write(*,112)'cP new LARGER than old',errcpnew,errcpold
+	  endif
+c
 c***********************************************************************
 c
 c         quit iteration if accuracy reached or cp rises again
 c
 c
 c          write(*,'(2e10.3)')errcp,epsiter
+c
           inccp = .true.
- 	  if(errcp.lt.epsiter.or.
-     +       errsl.lt.epsiter.or.
-     +       errcpnew.gt.errcpold)
-     +    GOTO 321
+c------------------------------------------------
+c 	  if(errcp.lt.epsiter.or.
+c     +       errsl.lt.epsiter.or.
+c     +       errcpnew.gt.errcpold)
+c     +    GOTO 321
+c--------------------------------------------------
+ 	  if(errsl.lt.epsiter)GOTO 321
+c
 C***************************************************************************
 c         output
 c
-	  write(*,'(i10,3e10.2,f15.7)')niter,errcp,errsl,errff,cpw
+	  write(*,'(i10,3e10.2,f15.7)')niter,errcp,errsl,errff,cp
 c
 c	  write out cp for convergence check
 
@@ -239,8 +273,8 @@ c
 	  do i=1,np
   	    zp   = 0.5*(zsl(i)+zsl(i-1))
 	    rp   = 0.5*(rsl(i)+rsl(i-1))
-	    write(13,110),zp,rp
-	    write(14,110),zp,psiBr(zp,rp)+psiBrCyl(zp,rp)
+	    write(13,110)zp,rp
+	    write(14,110)zp,psiBr(zp,rp)+psiBrCyl(zp,rp)
           end do
 	  write(13,*)
 	  write(14,*)
@@ -313,6 +347,7 @@ c
 109	format(a15)
 110	format(2f12.6)
 111     format(3(i3,a5))
+112	format(a20,2f12.6)
 c
 	end
 
