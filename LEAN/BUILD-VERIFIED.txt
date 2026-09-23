@@ -1,0 +1,27 @@
+EdgeSingularity.lean — machine-checked 2026-09-15T12:47Z
+
+Lean 4.34.0, Mathlib commit 4b28110ac604ac185c5287d9b51b25a6b26af94b
+
+lake build EdgeSingularity: success, no errors, no warnings, no sorry.
+
+#print axioms for integral_kernel, u_eq, v_eq, abs_u_le, continuousAt_vreg,
+tendsto_v_atBot, tendsto_v_atTop: [propext, Classical.choice, Quot.sound]
+(the standard axioms of Lean's classical logic; nothing else).
+
+Project layout to reproduce:
+  lakefile.toml, lean-toolchain (this folder), EdgeSingularity/Basic.lean (= EdgeSingularity.lean),
+  EdgeSingularity.lean (root) containing:  import EdgeSingularity.Basic
+  then:  lake update && lake exe cache get && lake build EdgeSingularity
+
+--- 16 September 2026: EdgeSingularity/Translation.lean added ---
+Sparenberg's translation theorem (van Kuik 1991, App. A), weak form, 2D strip:
+flat strip S1 = {a1} x [a2,b2] vs displaced strip S2 = other three sides of the rectangle.
+  Translation.conservative_difference  (T1, Gauss:  <f_S2,phi> - <f_S1,phi> = F * int_rect div phi)
+  Translation.div_rot_eq_zero          (T2, Schwarz: div (rot psi) = 0 for C^2 psi)
+  Translation.translation_theorem      (T3: <curl f_S2, psi> = <curl f_S1, psi> for all C^2 psi)
+lake build: success (2751 jobs).  No `sorry`.
+#print axioms for all three: [propext, Classical.choice, Quot.sound]
+Mathlib modules used: MeasureTheory.Integral.DivergenceTheorem
+  (integral_divergence_prod_Icc_of_hasFDerivAt_of_le), Analysis.Calculus.FDeriv.Symmetric
+  (ContDiffAt.isSymmSndFDerivAt).
+Library root EdgeSingularity.lean now imports EdgeSingularity.Basic and EdgeSingularity.Translation.
