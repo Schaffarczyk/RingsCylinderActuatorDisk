@@ -1,0 +1,2 @@
+rm -f uniform.exe
+gfortran -O3 uniform-main.f -o uniform.exe
