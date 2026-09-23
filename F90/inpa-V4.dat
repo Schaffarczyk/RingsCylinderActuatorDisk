@@ -1,9 +1,11 @@
--0.88889e00  ! cT (-8/9 WT Betz ; +1 prop)
-1600        ! N
-30.         ! LtubeFac
-1.5         ! beta (grading)
-0.05 0.05   ! dampA, dampG
-5000        ! maxiter
-1.e-9       ! epsPSI
-0.5 1.0     ! c1, c2 (kern)
-25          ! ncpout
+ct        -0.8888888888
+N-Rings    1600
+LtubeFac   30.
+beta       0.607
+dampA      0.05
+dampG      0.05
+maxiter    2500
+epsPSI     1.e-10
+c1         2.72
+c2         0.7
+ncpout     20
