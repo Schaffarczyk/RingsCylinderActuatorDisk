@@ -1,0 +1,12 @@
+name = "EdgeSingularity"
+defaultTargets = ["EdgeSingularity"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+# pinned to the commit of the verified build (2026-09-15, Lean v4.34.0);
+# "master" would drift and may require a newer toolchain
+rev = "4b28110ac604ac185c5287d9b51b25a6b26af94b"
+
+[[lean_lib]]
+name = "EdgeSingularity"
