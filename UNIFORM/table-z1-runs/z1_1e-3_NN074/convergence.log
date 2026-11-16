@@ -1,0 +1,26 @@
+# iteration history of z1_1e-3_NN074 (psie = stream function at the disc edge; err1/err2 = rms residuals of streamline / Bernoulli-jump update); 67 warnings 'invalid arguments in rd' (elliptic-integral guard, Vzm floor active at innermost nodes) removed
+1  psie =  0.333385  R(X2) =  1.000000  err1 = 0.902E-01  err2 = 0.575E-01
+2  psie =  0.333588  R(X2) =  1.146946  err1 = 0.519E-01  err2 = 0.251E-01
+3  psie =  0.334012  R(X2) =  1.268774  err1 = 0.316E-01  err2 = 0.874E-02
+4  psie =  0.333971  R(X2) =  1.346535  err1 = 0.190E-01  err2 = 0.506E-02
+5  psie =  0.333828  R(X2) =  1.382258  err1 = 0.109E-01  err2 = 0.318E-02
+6  psie =  0.333702  R(X2) =  1.394234  err1 = 0.623E-02  err2 = 0.126E-02
+7  psie =  0.333613  R(X2) =  1.398183  err1 = 0.367E-02  err2 = 0.409E-03
+8  psie =  0.333554  R(X2) =  1.401003  err1 = 0.220E-02  err2 = 0.397E-03
+9  psie =  0.333517  R(X2) =  1.404209  err1 = 0.136E-02  err2 = 0.264E-03
+10  psie =  0.333493  R(X2) =  1.407168  err1 = 0.862E-03  err2 = 0.127E-03
+11  psie =  0.333479  R(X2) =  1.409402  err1 = 0.546E-03  err2 = 0.621E-04
+12  psie =  0.333470  R(X2) =  1.410717  err1 = 0.330E-03  err2 = 0.463E-04
+13  psie =  0.333464  R(X2) =  1.411437  err1 = 0.197E-03  err2 = 0.300E-04
+14  psie =  0.333461  R(X2) =  1.411821  err1 = 0.116E-03  err2 = 0.173E-04
+15  psie =  0.333459  R(X2) =  1.412032  err1 = 0.687E-04  err2 = 0.969E-05
+16  psie =  0.333458  R(X2) =  1.412157  err1 = 0.407E-04  err2 = 0.583E-05
+17  psie =  0.333457  R(X2) =  1.412239  err1 = 0.242E-04  err2 = 0.369E-05
+18  psie =  0.333457  R(X2) =  1.412293  err1 = 0.145E-04  err2 = 0.230E-05
+19  psie =  0.333457  R(X2) =  1.412330  err1 = 0.863E-05  err2 = 0.142E-05
+20  psie =  0.333457  R(X2) =  1.412353  err1 = 0.510E-05  err2 = 0.885E-06
+21  psie =  0.333456  R(X2) =  1.412367  err1 = 0.297E-05  err2 = 0.573E-06
+22  psie =  0.333456  R(X2) =  1.412376  err1 = 0.168E-05  err2 = 0.374E-06
+23  psie =  0.333456  R(X2) =  1.412380  err1 = 0.924E-06  err2 = 0.241E-06
+real	0m7.815s
+user	0m7.763s

@@ -1,0 +1,51 @@
+ CONVERGENCE HISTORY
+ ITERATION      ERROR1(R)    ERROR2(gamma)
+       1     0.9018E-01   0.5746E-01
+       2     0.5190E-01   0.2512E-01
+       3     0.3161E-01   0.8736E-02
+       4     0.1904E-01   0.5060E-02
+       5     0.1090E-01   0.3185E-02
+       6     0.6228E-02   0.1259E-02
+       7     0.3669E-02   0.4089E-03
+       8     0.2203E-02   0.3972E-03
+       9     0.1360E-02   0.2640E-03
+      10     0.8616E-03   0.1270E-03
+      11     0.5462E-03   0.6207E-04
+      12     0.3303E-03   0.4633E-04
+      13     0.1966E-03   0.3003E-04
+      14     0.1162E-03   0.1726E-04
+      15     0.6872E-04   0.9692E-05
+      16     0.4073E-04   0.5831E-05
+      17     0.2424E-04   0.3689E-05
+      18     0.1447E-04   0.2304E-05
+      19     0.8633E-05   0.1415E-05
+      20     0.5105E-05   0.8852E-06
+      21     0.2966E-05   0.5728E-06
+      22     0.1681E-05   0.3744E-06
+      23     0.9242E-06   0.2407E-06
+ ***** Wind Turbine Case *****
+ Uniform load: h - h0 = b inside slipstream, J = 0
+ b                    =    -0.444444
+ relax                =     0.700000
+ psi-edge             =     0.333456
+ psi-edge mom. theory =     0.333333
+ mean Vz at disk 2psie=     0.666913
+ w (far wake, exact)  =    -0.666667
+ R_inf = sqrt(2psie/(1+w)) =     1.414475
+ R(X2)                =     1.412380   X2 =   40.00
+ gamma(X2)  (-> w)    =    -0.665960
+ cT = 2b              =    -0.888889
+ cP = 4 b psie        =    -0.592811
+ cP mom. theory       =    -0.592593
+ wind turbine sign: cT =   0.888889  cP =   0.592811
+    a =   0.333333  cP(mom.th.) = -4a(1-a)^2 =  -0.592593
+Radial Profile at z/Ra =   -2.5000
+Radial Profile at z/Ra =   -2.0000
+Radial Profile at z/Ra =   -1.5000
+Radial Profile at z/Ra =   -1.0000
+Radial Profile at z/Ra =   -0.5000
+Radial Profile at z/Ra =    0.0000
+Radial Profile at z/Ra =    0.5000
+Radial Profile at z/Ra =    1.0000
+Radial Profile at z/Ra =    1.5000
+Radial Profile at z/Ra =    2.0000
