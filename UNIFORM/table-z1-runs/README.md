@@ -35,7 +35,7 @@ Input on stdin (`input.txt`): line 1 `b`, line 2 `X2 NN NITER`.
 | file | content |
 |---|---|
 | `input.txt` | the two stdin lines |
-| `start.dat` | warm-start profile (z1 = 1e-5, 1e-6 only; = `Gamma.DAT` of the previous run) |
+| `start.dat` | warm-start profile for z1 = 1e-5, 1e-6: a copy of the previous run's `Gamma.DAT`, made by the script (not stored separately) |
 | `Gamma.DAT` | sheet data per node: z, R, dR/dz, γ_z (ring strength per unit **axial** length), V_zm (mean axial velocity on the sheet) |
 | `Solution.DAT` | global results (Ψ_e, c_P, R_∞, R(X2), γ(X2)) and run parameters |
 | `convergence.log` | iteration history: Ψ_e, R(X2), rms residuals err1 (streamline condition), err2 (Bernoulli jump) per iteration, wall time |
