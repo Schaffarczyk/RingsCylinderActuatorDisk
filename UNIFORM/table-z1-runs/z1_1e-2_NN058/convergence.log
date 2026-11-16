@@ -1,0 +1,27 @@
+# iteration history of z1_1e-2_NN058 (psie = stream function at the disc edge; err1/err2 = rms residuals of streamline / Bernoulli-jump update); 60 warnings 'invalid arguments in rd' (elliptic-integral guard, Vzm floor active at innermost nodes) removed
+1  psie =  0.333385  R(X2) =  1.000000  err1 = 0.102E+00  err2 = 0.606E-01
+2  psie =  0.333895  R(X2) =  1.146978  err1 = 0.587E-01  err2 = 0.242E-01
+3  psie =  0.334391  R(X2) =  1.269023  err1 = 0.358E-01  err2 = 0.833E-02
+4  psie =  0.334356  R(X2) =  1.347175  err1 = 0.216E-01  err2 = 0.561E-02
+5  psie =  0.334205  R(X2) =  1.382642  err1 = 0.123E-01  err2 = 0.359E-02
+6  psie =  0.334072  R(X2) =  1.394329  err1 = 0.704E-02  err2 = 0.134E-02
+7  psie =  0.333979  R(X2) =  1.398418  err1 = 0.415E-02  err2 = 0.457E-03
+8  psie =  0.333918  R(X2) =  1.401349  err1 = 0.249E-02  err2 = 0.470E-03
+9  psie =  0.333880  R(X2) =  1.404729  err1 = 0.154E-02  err2 = 0.299E-03
+10  psie =  0.333856  R(X2) =  1.407824  err1 = 0.982E-03  err2 = 0.118E-03
+11  psie =  0.333841  R(X2) =  1.410057  err1 = 0.618E-03  err2 = 0.578E-04
+12  psie =  0.333832  R(X2) =  1.411395  err1 = 0.376E-03  err2 = 0.438E-04
+13  psie =  0.333826  R(X2) =  1.412143  err1 = 0.225E-03  err2 = 0.288E-04
+14  psie =  0.333823  R(X2) =  1.412549  err1 = 0.133E-03  err2 = 0.164E-04
+15  psie =  0.333821  R(X2) =  1.412775  err1 = 0.792E-04  err2 = 0.888E-05
+16  psie =  0.333820  R(X2) =  1.412909  err1 = 0.471E-04  err2 = 0.521E-05
+17  psie =  0.333819  R(X2) =  1.412995  err1 = 0.281E-04  err2 = 0.332E-05
+18  psie =  0.333819  R(X2) =  1.413052  err1 = 0.169E-04  err2 = 0.210E-05
+19  psie =  0.333818  R(X2) =  1.413089  err1 = 0.101E-04  err2 = 0.130E-05
+20  psie =  0.333818  R(X2) =  1.413114  err1 = 0.600E-05  err2 = 0.827E-06
+21  psie =  0.333818  R(X2) =  1.413129  err1 = 0.351E-05  err2 = 0.549E-06
+22  psie =  0.333818  R(X2) =  1.413137  err1 = 0.201E-05  err2 = 0.369E-06
+23  psie =  0.333818  R(X2) =  1.413142  err1 = 0.112E-05  err2 = 0.243E-06
+24  psie =  0.333818  R(X2) =  1.413145  err1 = 0.606E-06  err2 = 0.156E-06
+real	0m7.166s
+user	0m7.109s
