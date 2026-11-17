@@ -1,0 +1,38 @@
+Licensing of this repository (Schaffarczyk/RingsCylinderActuatorDisk)
+=====================================================================
+
+Copyright (c) 2019-2026 Alois Peter Schaffarczyk, Kiel University of
+Applied Sciences (HAW Kiel), Germany.
+
+Two licences apply, depending on the type of file:
+
+1. Data, documentation, figures and the Lean 4 proof files
+   (all *.dat, *.DAT, *.txt, *.md, *.png, *.cmd input decks, the LEAN/
+   directory and the UNIFORM/table-z1-runs/ directory) are released
+   under the Creative Commons Attribution 4.0 International licence
+   (CC BY 4.0), SPDX: CC-BY-4.0.
+   You are free to share and adapt the material for any purpose, provided
+   you give appropriate credit (see CITATION.cff).
+   Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+2. Program sources (Fortran *.f, *.f90, *.F90, Python *.py, shell scripts)
+   are released under the MIT License, SPDX: MIT:
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the
+   "Software"), to deal in the Software without restriction, including
+   without limitation the rights to use, copy, modify, merge, publish,
+   distribute, sublicense, and/or sell copies of the Software, and to
+   permit persons to whom the Software is furnished to do so, subject to
+   the following conditions:
+
+   The above copyright notice and this permission notice shall be included
+   in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below, together with the companion paper."
+type: software
+title: "RingsCylinderActuatorDisk: codes, edge-resolved runs and Lean 4 proofs for the uniformly loaded actuator disc"
+authors:
+  - family-names: Schaffarczyk
+    given-names: Alois Peter
+    affiliation: "Kiel University of Applied Sciences (HAW Kiel), Germany"
+repository-code: "https://github.com/Schaffarczyk/RingsCylinderActuatorDisk"
+license: CC-BY-4.0
+keywords:
+  - actuator disc
+  - momentum theory
+  - vortex sheet
+  - edge singularity
+  - logarithmic spiral
+preferred-citation:
+  type: article
+  title: "The edge of the uniformly loaded actuator disc: edge-flow structure, regularity, and the exactness of one-dimensional momentum theory"
+  authors:
+    - family-names: Bontempo
+      given-names: Rodolfo
+    - family-names: Conway
+      given-names: John T.
+    - family-names: Schaffarczyk
+      given-names: Alois Peter
+  journal: "Wind Energy Science"
+  year: 2026
+  notes: "submitted"

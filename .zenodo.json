@@ -1,0 +1,37 @@
+{
+  "title": "RingsCylinderActuatorDisk: vortex-ring / vortex-cylinder and semi-analytical codes for the uniformly loaded actuator disc, with edge-resolved runs and Lean 4 proofs",
+  "upload_type": "software",
+  "description": "<p>Fortran and Python codes for the uniformly loaded (Froude) actuator disc: the vortex-ring/vortex-cylinder free-wake model (V4), the uniform-load limit of Conway's semi-analytical Bessel-Laplace scheme (UNIFORM/uniform-main.f, uniform-main-edge.f, uniform-edge.f) with SciPy verification scripts, the raw runs behind Table 1 of the companion paper (UNIFORM/table-z1-runs: refinement of the first sheet node z1 = 1e-1 ... 1e-6 for the Betz load b = -4/9), and the Lean 4 / Mathlib formalisations of Muskhelishvili's end-point theorem for a cut vortex sheet and of the weak form of Sparenberg's translation theorem (LEAN/).</p><p>Companion to: R. Bontempo, J. T. Conway, A. P. Schaffarczyk, <em>The edge of the uniformly loaded actuator disc: edge-flow structure, regularity, and the exactness of one-dimensional momentum theory</em> (submitted to Wind Energy Science, 2026).</p><p>Licence: CC BY 4.0 for data, documentation and proof files; MIT for program sources (see LICENSE).</p>",
+  "creators": [
+    {
+      "name": "Schaffarczyk, Alois Peter",
+      "affiliation": "Kiel University of Applied Sciences (HAW Kiel), Germany"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Conway, John T.",
+      "affiliation": "University of Agder, Grimstad, Norway",
+      "type": "Researcher"
+    },
+    {
+      "name": "Bontempo, Rodolfo",
+      "affiliation": "Università degli Studi di Napoli Federico II, Naples, Italy",
+      "type": "Researcher"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "actuator disc",
+    "momentum theory",
+    "vortex sheet",
+    "edge singularity",
+    "logarithmic spiral",
+    "wind turbine aerodynamics",
+    "Lean 4",
+    "Fortran"
+  ],
+  "notes": "Program sources are MIT-licensed; data, documentation and Lean proof files are CC BY 4.0 (see LICENSE)."
+}
