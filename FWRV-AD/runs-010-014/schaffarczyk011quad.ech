@@ -1,0 +1,76 @@
+#--- rngVxAD_UniLoad Echo Input File v3.4.1 --------------------------------------------------------------------------------------------------------------------------------#
+schaffarczyk011quad                                        CaseID:               Identification case number
+#--- Load distribution -----------------------------------------------------------------------------------------------------------------------------------------------------#
+        -0.888888888888888888888888888888888846E+00        dltH:                 Dimensionless jump in the Bernoulli H const. = DeltaH[J/kg]/(1/2U_\infty^2)[Prop>0;Turb<0]
+         0.100000000000000000000000000000000000E+01        effRot:               Internal efficiency of the rotor
+F                                                          wkRotFlag:            If T, then the wake is rotating
+#------ Panelling Data -----------------------------------------------------------------------------------------------------------------------------------------------------#
+                      6000                                 nPnlWk:               Number of Wake panels
+                         2                                 panelLawWk:           Panelling Law Wake (1: Uniform; 2: First Length; 3: Cosine)
+         0.500000000000000000000000000000000000E+02        zStartSI:             Axial coord at the beginning of the straight Semi-Infinite vortex tube
+#------ Body data ----------------------------------------------------------------------------------------------------------------------------------------------------------#
+                         0                                 confFlag:             Configuration Flag (0 = Open, 1 = Duct, 2 = Hub, 3 = Hub&Duct)
+                      2000                                 nPnlD:                Number of Duct Panels (ignored for confFlag.ne.1 OR confFlag.ne.3)
+S1223_15deg_adim_2001pnt.dat                               ductEPntFile:         File of the Duct End-Points (ignored for confFlag.ne.1 OR confFlag.ne.3)
+                      1600                                 nPnlH:                Number of Hub Panels (ignored for confFlag.ne.2 OR confFlag.ne.3)
+Hub_PhaseVIducted_adim_1601pnt.dat                         hubEPntFile:          File of the Hub End-Points (ignored for confFlag.ne.2 OR confFlag.ne.3)
+#------ Algorithm Set Up ---------------------------------------------------------------------------------------------------------------------------------------------------#
+         0.100000000000000000000000000000000008E-11        res:                  Wake radius residue
+                       400                                 nIterMax:             Number of iterations
+         0.200000000000000000000000000000000010E+00        RF:                   Relaxation Factor
+F                                                          flagInSol:            If T the caseIDInSol run is used to initialize the solution
+F                                                          flagInCouplingMtrxBd: If T the inverse of the couplingMtrxBd is inizialized from file
+F                                                          flagWrCouplingMtrxBd: If T the inverse of the couplingMtrxBd is written in the CouplingMtrxBd directory
+                         1                                 ellIntCmplt12Alg:     1 = AGM, 2 = Carlson, 3 = Poly
+                         1                                 ellIntCmplt3Alg:      1 = Carlson, 2 = GaussLegendre
+                         0                                 flagSICV:             0 = MT (dnstyStrgthSI=1-sqrt(1+dltH-(dltH/rWk(nPnlWk))**2), 1 = (dnstyStrgthSI=dnstyStrgthWk(nPnlWk))
+#------ Performance Coefficients Evaluation --------------------------------------------------------------------------------------------------------------------------------#
+T                                                          if T the Romberg method is used to evaluate the performance coeff
+F                                                          if T the SQUANK algorithm is used to evaluate the performance coeff
+F                                                          if T evaluate performance coefficients referred to duct exit area (specific for a Ducted Wind Turbine)
+#------ Velocities at the disk ---------------------------------------------------------------------------------------------------------------------------------------------#
+                      1000                                 Points in the radial direction in the profiles of the velocities at the disk
+#------ Radial Rake --------------------------------------------------------------------------------------------------------------------------------------------------------#
+F                                                          If T then evaluates the radial rake 
+                        21                                 Points in the axial direction
+                       500                                 Points in the radial direction
+         0.200000000000000000000000000000000000E+01        Maximum radial coordinate
+         0.100000000000000000000000000000000002E-01        Minimum radial coordinate [>=0]
+         0.200000000000000000000000000000000000E+01        Maximum axial coordinate
+        -0.200000000000000000000000000000000000E+01        Minimum axial coordinate
+#------ Axial Rake ---------------------------------------------------------------------------------------------------------------------------------------------------------#
+F                                                          If T then evaluates the axial rake 
+                       500                                 Points in the axial direction
+                        11                                 Points in the radial direction
+         0.200000000000000000000000000000000000E+01        Maximum radial coordinate
+         0.100000000000000000000000000000000002E-01        Minimum radial coordinate [>=0]
+         0.200000000000000000000000000000000000E+01        Maximum axial coordinate
+        -0.200000000000000000000000000000000000E+01        Minimum axial coordinate
+#------ Contour ------------------------------------------------------------------------------------------------------------------------------------------------------------#
+F                                                          If T then evaluates the contours
+                       100                                 Number of grid points in the wake (with edge) in the radial direction
+                        50                                 Number of grid points from the body LE to the disk (only for confFlag.ne.0)
+                       300                                 Number of grid points from the disk to the body TE (only for confFlag.ne.0)
+         0.200000000000000000000000000000000000E+01        Maximum radial coordinate
+         0.100000000000000000000000000000000002E-01        Minimum radial coordinate [>=0]
+         0.200000000000000000000000000000000000E+01        Maximum axial coordinate
+        -0.200000000000000000000000000000000000E+01        Minimum axial coordinate
+#------ Advanced Settings --------------------------------------------------------------------------------------------------------------------------------------------------#
+                        20                                 Number of the last wake panels where the radial velocity is linearised (0 => no linearized)
+                        20                                 Number of the last wake panels where the axial velocity is linearised (0 => no linearized)
+         0.249999999999999999999999999999999999E-30        Range of the charac. n using the asymptotic express. for vzSI (must be = to tiny in rj)
+         0.100000000000000000000000000000000005E-31        Error in the AGM method (single: 1.0d-8; double: 1.0d-16)
+         0.299999999999999999999999999999999990E-04        Error in rc (single: 0.04; double: 0.0012)
+         0.499999999999999999999999999999999983E-04        Error in rd (single: 0.05; double: 0.0015)
+         0.799999999999999999999999999999999973E-04        Error in rf (single: 0.08; double: 0.0025)
+         0.499999999999999999999999999999999983E-04        Error in rj (single: 0.05; double: 0.0015)
+                       200                                 Number of sub-elements
+         0.600000000000000000000000000000000000E+01        Factor of PnlLng. Subelements are used for a distance less than pnlLngFctForSub*pnlLng
+         0.100000000000000000000000000000000008E-11        Absolute error in SQUANK to integrate the axial velocity at the disk
+         0.100000000000000000000000000000000008E-11        Correction in SQUANK for the singularity at r=1 in the axial velocity at the disk
+         0.999999999999999999999999999999999932E-09        Relative error in qromo to integrate the axial velocity at the disk
+         0.999999999999999999999999999999999976E-07        Minimum cell size in the axial direction for contours
+         0.999999999999999999999999999999999966E-05        Minimum radial coord. for the hub control points (right hand-side splined for r < rBdMin)
+                         2                                 Iteration number of the central diff. scheme to evaluate the streamline in wake initializ.
+F                                                          If T the advanced post processing for Ducted Wind Turbine is carried out
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------#

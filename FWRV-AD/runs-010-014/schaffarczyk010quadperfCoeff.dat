@@ -1,0 +1,12 @@
+#===== PERFORMANCE COEFFICIENTS ====================================================================================#
+        -0.88888888888888888888888888888888885E+00         = Rotor thrust coefficient
+         0.00000000000000000000000000000000000E+00         = Duct thrust coefficient
+         0.00000000000000000000000000000000000E+00         = Hub thrust coefficient
+        -0.88888888888888888888888888888888885E+00         = Total thrust coefficient
+         0.59264415834082040770392891634904452E+00         = Power coefficient computed by Romberg method
+         0.14998694855567997673888118693256937E+01         = Ideal propulsive efficiency computed by Romberg method
+         0.66672467813342295866692003089267508E+00         = Averaged axial velocity at the disk plane computed by Romberg method
+         0.14127420790328507971974392883236168E+01         = Wake radius
+#===== INTEGRATION ERROR AND INFO ==================================================================================#
+                     59049   = Number of integrand evaluations required by Romberg method
+#===================================================================================================================#
