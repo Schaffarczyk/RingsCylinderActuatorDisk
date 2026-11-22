@@ -1,7 +1,7 @@
 # FWRV-AD runs 010–014 — free-wake ring-vortex actuator-disc output
 
-Paper: Bontempo, Conway, Schaffarczyk, *The edge of the uniformly loaded
-actuator disc: edge-flow structure, regularity, and the exactness of
+Paper: Schaffarczyk, Bontempo, Conway, *The edge of the uniformly loaded
+actuator disc: flow structure, regularity, and the exactness of
 one-dimensional momentum theory* (submitted to Wind Energy Science).
 
 The files in this directory are the output of the free-wake ring-vortex

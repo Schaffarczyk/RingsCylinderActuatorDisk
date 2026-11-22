@@ -16,14 +16,14 @@ keywords:
   - logarithmic spiral
 preferred-citation:
   type: article
-  title: "The edge of the uniformly loaded actuator disc: edge-flow structure, regularity, and the exactness of one-dimensional momentum theory"
+  title: "The edge of the uniformly loaded actuator disc: flow structure, regularity, and the exactness of one-dimensional momentum theory"
   authors:
+    - family-names: Schaffarczyk
+      given-names: Alois Peter
     - family-names: Bontempo
       given-names: Rodolfo
     - family-names: Conway
       given-names: John T.
-    - family-names: Schaffarczyk
-      given-names: Alois Peter
   journal: "Wind Energy Science"
   year: 2026
   notes: "submitted"
