@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""table-z1-from-runs.py -- derive the columns of Table 1 (tab:z1) of
+"""table-z1-from-runs.py -- derive the columns of Table 3 (tab:z1) of
 'The edge of the uniformly loaded actuator disc' from the raw runs in this
 directory.
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# run-table-z1.sh -- regenerate the raw runs behind Table 1 (tab:z1) of
+# run-table-z1.sh -- regenerate the raw runs behind Table 3 (tab:z1) of
 # "The edge of the uniformly loaded actuator disc" (Bontempo/Conway/Schaffarczyk)
 # b = -4/9 (Betz load, cT = 8/9), X2 = 40, ~16 nodes per decade.
 #   z1 = 1e-1 .. 1e-4 : uniform-main.f       (relax = relaxg = 0.7, cold start)

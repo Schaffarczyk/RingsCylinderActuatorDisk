@@ -1,9 +1,9 @@
-# table-z1-runs — raw runs behind Table 1 (tab:z1)
+# table-z1-runs — raw runs behind Table 3 (tab:z1)
 
 Paper: Bontempo, Conway, Schaffarczyk, *The edge of the uniformly loaded
 actuator disc: edge-flow structure, regularity, and the exactness of
 one-dimensional momentum theory* (submitted to Wind Energy Science).
-Table 1: edge behaviour of the converged solution for the Betz load
+Table 3: edge behaviour of the converged solution for the Betz load
 b = −4/9 (c_T = 8/9) under refinement of the first sheet node z1.
 
 The runs in this directory were regenerated on 16 November 2026 from the
@@ -58,7 +58,7 @@ The field files of the codes (`Stream.DAT`, `Psi.DAT`, `Vz*.DAT`, `Vr*.DAT`,
 * V_t,m(z1) = V_zm √(1+R′²) (mean velocity tangential to the sheet);
 * γ_s · V_t,m = b holds identically (Bernoulli jump condition, last column).
 
-## Comparison: regenerated runs vs. printed Table 1
+## Comparison: regenerated runs vs. printed Table 3
 
 | z1 | Ψ_e (paper) | Ψ_e (here) | R′ (paper / here) | θ_s (paper / here) | γ_s | V_t,m |
 |---|---|---|---|---|---|---|
